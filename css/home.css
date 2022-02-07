@@ -1,0 +1,131 @@
+body {
+    background-color: #262626;
+}
+
+.container-games {
+    justify-content: center;
+}
+
+
+.banner-game {
+    width: 100%;
+    max-height: unset;
+    height: auto;
+}
+
+.text-banner {
+    font-family: 'Roboto', sans-serif;
+    color: #CCC;
+}
+
+.text-banner-category {
+    color: #CCC;
+    font-weight: 500;
+    font-size: 1.8rem;
+    margin-top: .125rem;
+    font-family: 'Roboto', sans-serif;
+    
+}
+.text-banner-title {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #FFF;
+    font-size: 2.2rem;
+}
+
+.text-banner-price {
+    font-weight: bold;
+    color: #00ff00;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.8rem;
+}
+
+.text-banner-plataform {
+    text-transform: uppercase;
+    font-size: 1.8rem;
+}
+
+.btn-buy {
+    color: #FFF;
+    width: 96%;
+    margin: auto;
+    background-color: #00ff0086;
+    padding:2rem;
+    border-radius: .2rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.btn-buy:hover {
+    color: #FFF;
+}
+
+
+
+@media (min-width:992px) {
+    .container-games {
+        justify-content: space-evenly;
+    }
+    .text-banner-category {
+        font-size:  1.2rem;
+    }
+
+    .text-banner-title {
+        font-size: 1.4rem;
+    }
+
+    .text-banner-price {
+        font-size: 1.2rem;
+    }
+
+    .text-banner-plataform {
+        font-size: 1.2rem;
+    }
+
+    .banner-game {
+        max-height: 350px;
+    }
+    .game-box {
+        border-radius: .2rem;
+        transition: .2s;
+    }
+    .game-box:hover {
+    -webkit-box-shadow: 1px 3px 15px 0px #00ff00; 
+    box-shadow: 1px 3px 15px 0px #00ff00;
+    }
+    .btn-buy {
+        width: 90%;
+        padding:1rem;
+    }
+    
+    .btn-buy:hover {
+    color: unset;
+    background-color: #1bc91b86;
+    transition: background .2s;
+    }
+}
+
+@media (min-width:1200px) {
+    .text-banner-category {
+        font-size:  .8rem;
+    }
+
+    .text-banner-title {
+        font-size: 1rem;
+    }
+
+    .text-banner-price {
+        font-size: 1rem;
+    }
+
+    .text-banner-plataform {
+        font-size: 1rem;
+    }
+    .banner-game {
+        height: 300px;
+        max-height: unset;
+    }
+}
