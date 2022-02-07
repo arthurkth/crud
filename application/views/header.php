@@ -19,17 +19,17 @@
 
             <div class="collapse navbar-collapse justify-content-lg-between" id="navbarNavAltMarkup">
                 <div class="navbar-nav d-flex justify-content-between align-items-center">
-                    <?php if (autoriza() == 'admin') : ?>
+                    <?php if (authorize() == 'admin') : ?>
                         <a class="nav-item nav-link" href="#">
                             <?php echo anchor($uri = 'http://localhost/lojagames/', $title = 'Início', $attributes = 'class="text-decoration-none text-light"') ?>
                         </a>
                         <a class="nav-item nav-link" href="#">
-                            <?php echo anchor($uri = 'http://localhost/lojagames/games/cadastro', $title = 'Cadastro', $attributes = 'class="text-decoration-none text-light"') ?>
+                            <?php echo anchor($uri = 'http://localhost/lojagames/game/register', $title = 'Cadastro', $attributes = 'class="text-decoration-none text-light"') ?>
                         </a>
                         <a class="nav-item nav-link" href="#">
-                            <?php echo anchor($uri = 'http://localhost/lojagames/usuario/registro', $title = 'Cadastrar Admin', $attributes = 'class="text-decoration-none text-light"') ?>
-                        </a>
-                    <?php elseif(autoriza() == 'comum'): ?>
+                            <?php echo anchor($uri = 'http://localhost/lojagames/user/register', $title = 'Cadastrar Admin', $attributes = 'class="text-decoration-none text-light"') ?>
+                        </a> ]
+                    <?php elseif (authorize() == 'comum' || !authorize()) : ?>
                         <a class="nav-item nav-link" href="#">
                             <?php echo anchor($uri = 'http://localhost/lojagames/', $title = 'Início', $attributes = 'class="text-decoration-none text-light"') ?>
                         </a>
@@ -41,26 +41,25 @@
                                 <?php foreach ($categories as $category) : ?>
                                     <a class="" href="#">
                                         <?php echo anchor(
-                                            $uri = 'http://localhost/lojagames/categoria/?id=' . $category['id'],
+                                            $uri = 'http://localhost/lojagames/category/?id=' . $category['id'],
                                             $title = $category['nome'],
                                             $attributes = 'class="dropdown-item text-decoration-none"'
                                         ) ?>
                                     </a>
                                 <?php endforeach ?>
-
                             </div>
                         </div>
                     <?php endif ?>
                 </div>
-                <?php if (autoriza()) : ?>
-                    <a class="nav-item nav-link align text-light text-decoration-none" href="<?php echo base_url('usuario/logout') ?>">
+                <?php if (authorize()) : ?>
+                    <a class="nav-item nav-link align text-light text-decoration-none" href="<?php echo base_url('user/logout') ?>">
                         Sair</a>
                 <?php endif ?>
 
-                <?php if (!autoriza()) : ?>
+                <?php if (!authorize()) : ?>
                     <div>
                         <p class="text-light mb-1 text-center">Faça Login ou <a href="#" class="btn-user-register" data-bs-toggle="modal" data-bs-target="#modal-register">Cadastre-se</a></p>
-                        <form action="usuario/login" method="POST">
+                        <form action="user/login" method="POST">
                             <label class="text-light">
                                 E-mail
                                 <input type="text" name="email" id="" class="form-control">
@@ -86,7 +85,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="usuario/cadastrar" method="POST">
+                    <form action="user/formuser" method="POST">
                         <label class="d-block my-2">
                             Nome
                             <input type="text" name="nome" class="form-control">

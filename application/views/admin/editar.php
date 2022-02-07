@@ -4,7 +4,7 @@
     <div class="row justify-content-center">
         <div class="col-12 col-md-8">
             <h1 class=" text-center">Edição de Jogo</h1>
-            <form action="<?= base_url('games/editarjogo') ?>" method="POST" enctype="multipart/form-data">
+            <form action="<?= base_url('game/gameEdit') ?>" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <input type="hidden" name="gameid" value="<?= $game['id'] ?>">
                     <label class=" w-100">

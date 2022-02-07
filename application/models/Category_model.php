@@ -1,5 +1,5 @@
 <?php
-class Category extends CI_Model
+class Category_model extends CI_Model
 {
 
   public function getAllCategories()

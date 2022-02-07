@@ -1,13 +1,13 @@
 <?php
-class User extends CI_Model
+class User_model extends CI_Model
 {
-    public function save($nome, $email, $senha, $permissao = '0')
+    public function save($name, $email, $password, $permission = '0')
     {
         return $this->db->insert('usuario', array(
-            'nome' => $nome,
+            'nome' => $name,
             'email' => $email,
-            'senha' => $senha,
-            'permissao' => $permissao
+            'senha' => $password,
+            'permissao' => $permission
         ));
     }
     public function userValidate($email)

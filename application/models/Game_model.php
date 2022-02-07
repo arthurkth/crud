@@ -1,5 +1,5 @@
 <?php
-class Game extends CI_Model
+class Game_model extends CI_Model
 {
     public function save($nome, $plataforma, $preco, $emEstoque, $qtdEstoque, $categoria, $imagem)
     {
@@ -32,16 +32,16 @@ class Game extends CI_Model
         ))->row_array();
     }
 
-    public function updateGame($id, $nome, $plataforma, $preco, $emEstoque, $qtdEstoque, $categoria, $imagem)
+    public function updateGame($id, $name, $plataform, $price, $inStock, $qntStock, $category, $image)
     {
         $data = [
-            "nome" => $nome,
-            "plataforma" => $plataforma,
-            "preco" => $preco,
-            "em_estoque" => $emEstoque,
-            "qtd_estoque" => $qtdEstoque,
-            "imagem" => $imagem,
-            "id_categoria" => $categoria
+            "nome" => $name,
+            "plataforma" => $plataform,
+            "preco" => $price,
+            "em_estoque" => $inStock,
+            "qtd_estoque" => $qntStock,
+            "imagem" => $image,
+            "id_categoria" => $category
         ];
         $this->db->where('id', $id);
         $this->db->update('game', $data);

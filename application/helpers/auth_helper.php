@@ -1,5 +1,5 @@
 <?php
-function autoriza()
+function authorize()
 {
     $ci = get_instance();
     $usuarioLogado = $ci->session->userdata("usuario_logado");

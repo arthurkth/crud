@@ -1,19 +1,19 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Usuario extends CI_Controller
+class User extends CI_Controller
 {
-    public function registro()
+    public function register()
     {
         $this->load->template('admin/cadastro-admin');
     }
     public function login()
     {
-        $this->load->model('User');
+        $this->load->model('User_model');
         $email = $_POST['email'];
-        $senha = $_POST['senha'];
-        $user = $this->User->userValidate($email);
+        $password = $_POST['senha'];
+        $user = $this->User_model->userValidate($email);
         $userPass = $this->encrypt->decode($user['senha']);
-        if ($senha === $userPass && $senha !== '' && $user !== '') {
+        if ($password === $userPass && $password !== '' && $user !== '') {
             $this->session->set_userdata('usuario_logado', $user);
             redirect('/');
         } else {
@@ -28,23 +28,23 @@ class Usuario extends CI_Controller
         $this->session->sess_destroy();
         redirect('/');
     }
-    public function cadastrar()
+    public function formuser()
     {
         $this->load->library('encrypt');
-        $this->load->model('User');
-        $nome = $_POST['nome'];
+        $this->load->model('User_model');
+        $name = $_POST['nome'];
         $email = $_POST['email'];
-        $senha = $_POST['senha'];
-        $user = $this->User->userValidate($email);
+        $password = $_POST['senha'];
+        $user = $this->User_model->userValidate($email);
         if ($user == false) {
-            if ($nome !== '' && $email !== '' && $senha !== '') {
-                if ($permissao = $_POST['permissao']) {
-                    $permissao = $_POST['permissao'];
+            if ($name !== '' && $email !== '' && $password !== '') {
+                if ($permission = $_POST['permissao']) {
+                    $permission = $_POST['permissao'];
                 } else {
-                    $permissao = '';
+                    $permission = '';
                 }
-                $encrypted_pass = $this->encrypt->encode($senha);
-                $this->User->save($nome, $email, $encrypted_pass, $permissao);
+                $encrypted_pass = $this->encrypt->encode($password);
+                $this->User_model->save($name, $email, $encrypted_pass, $permission);
                 $this->session->set_flashdata("success", "Cadastrado com sucesso");
                 redirect('/');
             }

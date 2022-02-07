@@ -3,7 +3,7 @@
     <div class="row justify-content-center">
         <div class="col-12 col-md-8">
             <h1 class="text-center">Cadastro de Jogo</h1>
-            <form action="cadastrarjogo" method="POST" enctype="multipart/form-data">
+            <form action="gameRegister" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label class="w-100">
                         Nome

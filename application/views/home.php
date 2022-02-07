@@ -10,7 +10,7 @@
                 <?php echo '<img src="data:image/png;base64,' . base64_encode($game['imagem']) . '" class="banner-game"/>'; ?>
                 <p class="text-banner-title my-2 px-1"><strong><?= $game["nome"] ?></strong></p>
                 <p class="text-banner text-banner-plataform m-0 px-1"><?= $game["plataforma"] ?></p>
-                <?php $categoria = $this->Category->getCategoryById($game['id_categoria']) ?>
+                <?php $categoria = $this->Category_model->getCategoryById($game['id_categoria']) ?>
                 <div class="row">
                     <div class="col-6 pl-0 pr-3">
                         <p class="text-banner-category px-1"><?= $categoria['nome'] ?></p>
