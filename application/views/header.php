@@ -21,17 +21,17 @@
                 <div class="navbar-nav d-flex justify-content-between align-items-center">
                     <?php if (authorize() == 'admin') : ?>
                         <a class="nav-item nav-link" href="#">
-                            <?php echo anchor($uri = 'http://localhost/lojagames/', $title = 'Início', $attributes = 'class="text-decoration-none text-light"') ?>
+                            <?php echo anchor(base_urL(),'Início', 'class="text-decoration-none text-light"') ?>
                         </a>
                         <a class="nav-item nav-link" href="#">
-                            <?php echo anchor($uri = 'http://localhost/lojagames/game/register', $title = 'Cadastro', $attributes = 'class="text-decoration-none text-light"') ?>
+                            <?php echo anchor(base_url('game/register'),'Cadastro', 'class="text-decoration-none text-light"') ?>
                         </a>
                         <a class="nav-item nav-link" href="#">
-                            <?php echo anchor($uri = 'http://localhost/lojagames/user/register', $title = 'Cadastrar Admin', $attributes = 'class="text-decoration-none text-light"') ?>
+                            <?php echo anchor(base_url('user/register'), 'Cadastrar Admin', 'class="text-decoration-none text-light"') ?>
                         </a> ]
                     <?php elseif (authorize() == 'comum' || !authorize()) : ?>
                         <a class="nav-item nav-link" href="#">
-                            <?php echo anchor($uri = 'http://localhost/lojagames/', $title = 'Início', $attributes = 'class="text-decoration-none text-light"') ?>
+                            <?php echo anchor(base_urL(),'Início', 'class="text-decoration-none text-light"') ?>
                         </a>
                         <div class="btn-group">
                             <button type="button" class="btn dropdown-toggle text-light" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -41,9 +41,9 @@
                                 <?php foreach ($categories as $category) : ?>
                                     <a class="" href="#">
                                         <?php echo anchor(
-                                            $uri = 'http://localhost/lojagames/category/?id=' . $category['id'],
-                                            $title = $category['nome'],
-                                            $attributes = 'class="dropdown-item text-decoration-none"'
+                                            base_url('category/index/'.$category->id),
+                                            $category->nome,
+                                            'class="dropdown-item text-decoration-none"'
                                         ) ?>
                                     </a>
                                 <?php endforeach ?>
@@ -85,7 +85,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="user/formuser" method="POST">
+                    <form action="<?php echo base_url('index.php/user/userRegister') ?>" method="POST">
                         <label class="d-block my-2">
                             Nome
                             <input type="text" name="nome" class="form-control">

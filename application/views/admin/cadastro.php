@@ -42,8 +42,8 @@
                         Categoria
                         <select name="categoria" class="form-control">
                             <?php foreach ($categories as $category) : ?>
-                                <option value="<?= $category['id'] ?>">
-                                    <?= $category["nome"] ?>
+                                <option value="<?= $category->id ?>">
+                                    <?= $category->nome ?>
                                 </option>
                             <?php endforeach ?>
                         </select>

@@ -2,7 +2,7 @@
     <div class="container p-4">
         <div class="row justify-content-center align-center">
             <h1 class="text-center">Registro de Administrador</h1>
-            <form action="<?php echo base_url('user/formuser') ?>" method="POST" class="w-75">
+            <form action="<?php echo base_url('user/adminRegister') ?>" method="POST" class="w-75">
                 <label class="d-block my-3">
                     Nome
                     <input type="text" name="nome" class="form-control">

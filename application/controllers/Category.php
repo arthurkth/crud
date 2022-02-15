@@ -1,20 +1,29 @@
 <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Category extends CI_Controller
+class category extends CI_Controller
 {
-    public function index()
+    public function index($categoryId)
     {
-        $this->load->model('Category_model');
-        $this->load->model('Game_model');
-        $categoryid = $_GET['id'];
-        $category = $this->Category_model->getCategoryById($categoryid);
-        $categories = $this->Category_model->getAllCategories();
-        $categorygames = $this->Game_model->getGamesByCategoryId($categoryid);
-        $data = array(
-            "games" => $categorygames,
-            "category" => $category,
-            "categories" => $categories
-        );
-        $this->load->template('category', $data);
+        $this->load->model('category_model');
+        $this->load->model('game_model');
+
+        $this->load->template('category', [
+            "games"      => $this->getGamesCategory($categoryId),
+            "category"   => $this->category_model->getById($categoryId),
+            "categories" => $this->category_model->all()
+        ]);
+    }
+
+    protected function getGamesCategory($categoryId)
+    {
+        $this->db->select([
+            'g.*',
+            'c.nome AS nome_categoria'
+        ]);
+        $this->db->from('game g');
+        $this->db->join('categoria c', 'c.id = g.id_categoria', 'left');
+        $this->db->where('g.id_categoria', $categoryId);
+
+        return $this->db->get()->result();
     }
 }

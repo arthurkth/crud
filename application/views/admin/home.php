@@ -14,10 +14,10 @@
                 <tbody>
                     <?php foreach ($games as $game) : ?>
                         <tr>
-                            <td><?= $game['id'] ?></td>
-                            <td><?= $game['nome'] ?></td>
+                            <td><?= $game->id ?></td>
+                            <td><?= $game->nome ?></td>
                             <td class="d-flex justify-content-center">
-                                <a href="<?= base_url('game/edit/?id=' . $game['id']) ?>" class="btn btn-danger m-1">Editar</a>
+                                <a href="<?= base_url('game/edit/' . $game->id) ?>" class="btn btn-danger m-1">Editar</a>
                                 <button class="btn btn-warning d-block m-1" data-bs-toggle="modal" data-bs-target="#modal-delete">Excluir</button>
                             </td>
                         </tr>
@@ -36,7 +36,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="close"></button>
                 </div>
                 <div class="modal-body">
-                    <a href="<?= base_url('game/delete/?id=' . $game['id']) ?>" class="btn btn-success">
+                    <a href="<?= base_url('game/delete/' . $game->id) ?>" class="btn btn-success">
                         Sim
                     </a>
                     <button class="btn btn-danger" data-bs-dismiss="modal" aria-label="close">

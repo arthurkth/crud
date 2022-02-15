@@ -1,17 +1,12 @@
 <?php
-class User_model extends CI_Model
+class user_model extends My_Model
 {
-    public function save($name, $email, $password, $permission = '0')
-    {
-        return $this->db->insert('usuario', array(
-            'nome' => $name,
-            'email' => $email,
-            'senha' => $password,
-            'permissao' => $permission
-        ));
-    }
+    protected $table = 'usuario';
+
     public function userValidate($email)
     {
-        return $this->db->get_where('usuario', array('email' => $email))->row_array();
+        return $this->db->get_where('usuario', [
+            'email' => $email
+        ])->row();
     }
 }
